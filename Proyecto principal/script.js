@@ -12,7 +12,7 @@ const imprimirRubros = (simbolo, tipoS, tipo) => {
     console.log(simbolo + tipoS + tipo);
 }
 
-let fuente = "Hola 22.4 60";
+let fuente = "120 entero ; t";
 let an = new Analizador(fuente);
 
 console.log("Resultado del analisis Lexico");
@@ -20,7 +20,7 @@ if(fuente.length != 0) {
     console.log("Simbolo             Tipo           Id_tipo   ");
 
     an.obtenerSimbolo();
-    while(an.simbolo != "$") {
+    while(an.simbolo != "%%") {
         imprimirRubros(an.simbolo, an.tipoS, an.tipo);
         an.obtenerSimbolo();
     }
