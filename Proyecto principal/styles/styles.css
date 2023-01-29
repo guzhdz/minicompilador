@@ -1,0 +1,164 @@
+:root {
+    --background: #282A3A;
+    --primary: #584c51;
+    --secondary: #798291;
+    --secondary-light: #C3C1C6;
+    --tertiary-light: #C6AFA0;
+    --tertiary: #9E8A78;
+  }
+
+
+body {
+    margin: 100px 200px 200px 100px;
+    height: 100%;
+
+    color: var(--secondary-light);
+    background-color: var(--background);
+
+
+}
+
+.main-title {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+
+    margin-bottom: 80px;
+}
+
+.main-title h1 {
+    margin-left: auto;
+    margin-right: auto;
+
+    text-align: center;
+    font-size: 40px;
+}
+
+.an-lexico {
+    display: flex;
+    flex-direction: column;
+
+    margin-bottom: 25px;
+}
+
+.an-lexico span {
+    text-align: left;
+
+    font-size: 25px;
+
+    margin: auto auto 20px auto;
+}
+
+.an-lexico input {
+    width: 40%;
+
+    padding: 15px;
+    margin: 0 auto 20px auto;
+
+    font-size: 20px;
+    color: var(--primary);
+
+    background-color: var(--tertiary-light);
+
+    border: none;
+    border-radius: 22px;
+
+    transition: all 0.2s ease-in-out;
+}
+
+.an-lexico input:hover {
+    opacity: .8;
+}
+
+.an-lexico button {
+    width: 10%;
+
+    margin-left: auto;
+    margin-right: 28%;
+    padding: 10px;
+
+    font-size: 18px;
+    color: var(--secondary-light);
+
+    border-radius: 15px;
+    border: none;
+
+    background-color: var(--primary);
+
+    transition: all 0.2s ease-in-out;
+}
+
+.an-lexico button:hover {
+
+    background-color: var(--background);
+
+    border: 2px solid var(--tertiary);
+
+    color: var(--tertiary);
+
+    cursor: pointer;
+}
+
+
+input:focus{
+    outline: none;
+}
+
+.table {
+    display: flex;
+    flex-direction: column;
+
+    width: 50%;
+
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.row {
+    display: flex;
+    flex-direction: row;
+
+    width: 100%;
+    height: 60px;
+
+    background-color: var(--tertiary);
+}
+
+.column {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    width: 33%;
+    height: 100%;
+
+    border: 2px solid var(--secondary);
+}
+
+.column span {
+    font-size: 18px;
+    text-align: center;
+}
+
+.row-content {
+    background-color: var(--primary);
+}
+
+.resultado {
+    display: none;
+}
+
+.vacio {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.vacio span {
+    font-size: 20px;
+
+    text-align: center;
+}
