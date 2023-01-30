@@ -46,6 +46,7 @@ const botonAnLexico = document.getElementById("boton-lexico");
 botonAnLexico.addEventListener("click", () => {
     const input = document.getElementById("input-lexico");
     fuente = input.value;
+    fuente = fuente.trim();
 
     let an = new Analizador(fuente);
 
@@ -53,13 +54,13 @@ botonAnLexico.addEventListener("click", () => {
 
     if(fuente.length != 0) {
         console.log("Simbolo             Tipo           Id_tipo   ");
-        an.obtenerSimbolo();
         
         let resultado = document.getElementById("resultado-lexico");
         let tabla = resultado.firstElementChild;
-        let body = document.getElementById("body");
-        body.removeChild(body.lastElementChild);
-        resultado.classList.remove("resultado");
+        let vacio = document.getElementById("vacio");
+        vacio.classList.add("oculto");
+
+        resultado.classList.remove("oculto");
 
         [...tabla.children].forEach(element => {
             if(element != tabla.firstElementChild) {
@@ -67,26 +68,20 @@ botonAnLexico.addEventListener("click", () => {
             } 
         });
 
-        while(an.simbolo != "%%") {
+        while(!an.termina()) {
+            console.log("entra");
+            an.obtenerSimbolo();
+
             imprimirRubros(an.simbolo, an.tipoS, an.tipo);
             
             tabla.appendChild(generarFilas(an.simbolo, an.tipoS, an.tipo));
-
-            an.obtenerSimbolo();
         }
     } else {
         console.log("Entrada vacia");
         let resultado = document.getElementById("resultado-lexico");
-        resultado.classList.add("resultado");
+        resultado.classList.add("oculto");
 
-        let body = document.getElementById("body");
-        let vacio = document.createElement("DIV");
-        let span = document.createElement("SPAN");
-
-        span.textContent = "Entrada vacia";
-        vacio.appendChild(span);
-        vacio.classList.add("vacio");
-        body.appendChild(vacio);
-
+        let vacio = document.getElementById("vacio");
+        vacio.classList.remove("oculto");
     }
 });

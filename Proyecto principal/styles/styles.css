@@ -144,10 +144,6 @@ input:focus{
     background-color: var(--primary);
 }
 
-.resultado {
-    display: none;
-}
-
 .vacio {
     display: flex;
     justify-content: center;
@@ -161,4 +157,8 @@ input:focus{
     font-size: 20px;
 
     text-align: center;
+}
+
+.oculto {
+    display: none;
 }

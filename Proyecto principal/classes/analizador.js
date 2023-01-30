@@ -1,12 +1,12 @@
 class Analizador {
     
     constructor(fuente) {
-        this.fuente = fuente || "%";
+        this.fuente = fuente || "$";
         this.indice = 0;
         this.continua = true;
         this.caracter = "";
         this.simbolo = "";
-        this.tipo = -1;
+        this.tipo = 404;
         this.tipoS = "";
         this.estado = 0;
     }
@@ -21,7 +21,7 @@ class Analizador {
     obtenerSimbolo() {
         this.simbolo = "";
         this.continua = true;
-        this.tipo = -1;
+        this.tipo = 404;
         this.tipoS = "";
         this.estado = 0;
 
@@ -145,7 +145,7 @@ class Analizador {
                     }
 
                     this.simbolo += this.caracter;
-                    this.estado = -1;
+                    this.estado = 404;
                     this.aceptacion(this.estado);
 
                     break;
@@ -189,7 +189,7 @@ class Analizador {
                     }
                     
                     if(this.fuente[num] == ".") {
-                        this.estado = -1;
+                        this.estado = 404;
                     }
                     this.regresa();
                     this.aceptacion(this.estado);
@@ -210,7 +210,7 @@ class Analizador {
                     if(this.caracter == "|") {
                         this.simbolo += this.caracter;
                     } else {
-                        this.estado = -1;
+                        this.estado = 404;
                         this.regresa();
                     }
                     this.aceptacion(this.estado);
@@ -220,7 +220,7 @@ class Analizador {
                     if(this.caracter == "&") {
                         this.simbolo += this.caracter;
                     } else {
-                        this.estado = -1;
+                        this.estado = 404;
                         this.regresa();
                     }
                     this.aceptacion(this.estado);
@@ -247,15 +247,13 @@ class Analizador {
                     break;
 
                 default:
-                    /*this.estado = -1;
-                    this.aceptacion(estado);*/
                     break;
             }
         }
 
         switch (this.estado) {
-            case -1:
-                this.tipo = -1;
+            case 404:
+                this.tipo = 404;
                 this.tipoS = "Error"
                 break;
 
@@ -386,13 +384,13 @@ class Analizador {
 
     sigCaracter () {
         if(this.indice == this.fuente.length) {
-            return "%%";
+            return "$";
         }      
         return this.fuente[this.indice++];
     }
 
     regresa() {
-        if (!this.termina() && !this.espacio()) {
+        if (this.caracter != "$" && !this.espacio()) {
             this.indice--;
         };
     }
@@ -453,7 +451,7 @@ class Analizador {
     }
 
     termina() {  
-        return this.caracter == "%%";
+        return this.indice == this.fuente.length;
     }
 
     aceptacion(estado) {
