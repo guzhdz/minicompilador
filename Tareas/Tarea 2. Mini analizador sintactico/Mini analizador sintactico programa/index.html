@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="./styles/reset.css">
+    <link rel="stylesheet" href="./styles/styles.css">
+    <title>Compilador</title>
+</head>
+<body id="body">
+    <div class="main-title">
+        <h1>Mini Analizador sintactito</h1>
+    </div>
+
+    <div class="an-lexico">
+        <span>Analizador Sintactico</span>
+        <input type="text" id="input-lexico" placeholder="Introduce el texto a analizar">
+        <button id ="boton-lexico">Analizar</button>
+    </div>
+
+    <div class="oculto" id="resultado-lexico">
+        <div class="table">
+            <div class="row">
+                <div class="column">
+                    <span>Pila</span>
+                </div>
+                <div class="column">
+                    <span>Entrada</span>
+                </div>
+                <div class="column">
+                    <span>Accion</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="vacio oculto" id="vacio">
+        <span>Entrada vacia</span>
+    </div>
+    
+    <script type="module" src="script.js"></script>
+</body>
+</html>
