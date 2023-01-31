@@ -392,7 +392,10 @@ class Analizador {
     regresa() {
         if (this.caracter != "$" && !this.espacio()) {
             this.indice--;
-        };
+        }
+        if(this.caracter == "$") {
+            this.caracter = "";
+        }
     }
 
 
@@ -451,7 +454,7 @@ class Analizador {
     }
 
     termina() {  
-        return this.indice == this.fuente.length;
+        return this.caracter == "$";
     }
 
     aceptacion(estado) {
