@@ -21,7 +21,7 @@ Generar un algoritmo para analizar los Ejercicios 1 y 2 del archivo (PracticaAna
 
 Se modifico el codigo del analizador lexico para que funcionara junto con un codigo nuevo y hicira la funcion del analizador sintactico. Se agrego una nueva clase (Sintactico) la cual realiza as tareas importantes del mismo, ademas de que se cambio la interfaz para que concordara con el objetivo de este mini analizador sintactico.
 
-Link del proyecto: 
+Link del proyecto: https://github.com/guzhdz/TRADUCTORES-DE-LENGUAJES-II/tree/main/Tareas/Tarea%202.%20Mini%20analizador%20sintactico/Mini%20analizador%20sintactico%20programa
 
 El proyecto puede ejecutarse en un servidor local o mediante la extension de live server de visual code, ejecutando el index.html.
 
