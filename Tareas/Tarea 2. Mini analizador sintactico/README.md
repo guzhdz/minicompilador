@@ -14,4 +14,7 @@ hola+mundo
 Entrada para el Ejercicio 2
 a+b+c+d+e+f
 
-Link de archivo: 
+Link de archivo: https://github.com/guzhdz/TRADUCTORES-DE-LENGUAJES-II/blob/main/Tareas/Tarea%202.%20Mini%20analizador%20sintactico/Mini%20analizador%20sint%C3%A1ctico%20(Excel).pdf
+
+# Tarea: Mini analizador sintáctico (código)
+Generar un algoritmo para analizar los Ejercicios 1 y 2 del archivo (PracticaAnalizadorSintactico.pdf)
