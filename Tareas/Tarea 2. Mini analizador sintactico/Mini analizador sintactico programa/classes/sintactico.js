@@ -18,6 +18,17 @@ class Sintactico {
                 this.simReglas = ["E"];
                 break;
 
+            case 2:
+                this.tablaLR1 = [[2, 0, 0, 1], 
+                                [0, 0, -1, 0], 
+                                [0, 3, -3, 0], 
+                                [2, 0, 0, 4], 
+                                [0, 0, -2, 0]];
+                this.idReglas = [3, 3];
+                this.lonReglas = [6, 2];
+                this.simReglas = ["E", "E"];
+                break;
+
             default:
                 this.tablaLR1 = [[2, 0, 0, 1], 
                                 [0, 0, -1, 0], 

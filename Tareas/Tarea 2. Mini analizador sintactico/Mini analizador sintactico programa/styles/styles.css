@@ -9,7 +9,7 @@
 
 
 body {
-    margin: 100px 200px 200px 100px;
+    margin: 80px 200px 200px 100px;
     height: 100%;
 
     color: var(--secondary-light);
@@ -34,14 +34,14 @@ body {
     font-size: 40px;
 }
 
-.an-lexico {
+.an {
     display: flex;
     flex-direction: column;
 
     margin-bottom: 25px;
 }
 
-.an-lexico span {
+.an span {
     text-align: left;
 
     font-size: 25px;
@@ -49,7 +49,7 @@ body {
     margin: auto auto 20px auto;
 }
 
-.an-lexico input {
+.an input {
     width: 40%;
 
     padding: 15px;
@@ -66,16 +66,28 @@ body {
     transition: all 0.2s ease-in-out;
 }
 
-.an-lexico input:hover {
+.an input:hover {
     opacity: .8;
 }
 
-.an-lexico button {
-    width: 10%;
+.an .botones {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
 
+    margin-right: auto;
     margin-left: auto;
-    margin-right: 28%;
+
+    width: 60%;
+}
+
+.an .botones button {
+    width: 20%;
+
     padding: 10px;
+
+    margin-right: 10px;
+    margin-left: 10px;
 
     font-size: 18px;
     color: var(--secondary-light);
@@ -88,7 +100,7 @@ body {
     transition: all 0.2s ease-in-out;
 }
 
-.an-lexico button:hover {
+.an .botones button:hover {
 
     background-color: var(--background);
 
@@ -112,6 +124,8 @@ input:focus{
 
     margin-left: auto;
     margin-right: auto;
+
+    margin-bottom: 20px;
 }
 
 .row {
@@ -154,6 +168,22 @@ input:focus{
 }
 
 .vacio span {
+    font-size: 20px;
+
+    text-align: center;
+}
+
+.msj-resultado {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 20px;
+}
+
+.msj-resultado span {
     font-size: 20px;
 
     text-align: center;

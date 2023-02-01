@@ -2,7 +2,7 @@ import {Analizador} from './classes/analizador.js';
 import { Sintactico } from './classes/sintactico.js';
 
 const obtenerFuente = () => {
-    const input = document.getElementById("input-lexico");
+    const input = document.getElementById("input");
     let fuente = input.value;
     fuente = fuente.trim();
     return fuente;
@@ -21,7 +21,7 @@ const imprimirRubros = (columna1, columna2, columna3) => {
 }
 
 const generarFilasTabla = (columna1, columna2, columna3) => {
-    let resultado = document.getElementById("resultado-lexico");
+    let resultado = document.getElementById("resultado");
     let tabla = resultado.firstElementChild;
 
     let row = document.createElement("DIV");
@@ -53,10 +53,13 @@ const generarFilasTabla = (columna1, columna2, columna3) => {
 }
 
 const reiniciaTabla = () => {
-    let resultado = document.getElementById("resultado-lexico");
+    let resultado = document.getElementById("resultado");
     let tabla = resultado.firstElementChild;
     let vacio = document.getElementById("vacio");
+    let mensaje = document.getElementById("mensaje-resultado");
     vacio.classList.add("oculto");
+    mensaje.classList.add("oculto");
+    
 
     resultado.classList.remove("oculto");
 
@@ -68,16 +71,20 @@ const reiniciaTabla = () => {
 }
 
 const entradaVaciaMsj = () => {
-    let resultado = document.getElementById("resultado-lexico");
+    let resultado = document.getElementById("resultado");
     resultado.classList.add("oculto");
 
     let vacio = document.getElementById("vacio");
     vacio.classList.remove("oculto");
 }
 
-const botonAnLexico = document.getElementById("boton-lexico");
-botonAnLexico.addEventListener("click", () => {
+const resultadoMsj = (texto) => {
+    let aceptacion = document.getElementById("mensaje-resultado");
+    aceptacion.classList.remove("oculto");
+    aceptacion.firstElementChild.textContent = texto;
+}
 
+const ejecutarAnalizador = (tablaLr) => {
     let fuente = "";
     fuente = obtenerFuente();
     let an = new Analizador(fuente);
@@ -88,7 +95,7 @@ botonAnLexico.addEventListener("click", () => {
         console.log("Pila                       Entrada                Accion   ");
         reiniciaTabla();
 
-        let sint = new Sintactico(1);
+        let sint = new Sintactico(tablaLr);
 
         sint.inicializarPila();
 
@@ -108,24 +115,31 @@ botonAnLexico.addEventListener("click", () => {
                     generarFilasTabla(sint.pila.join(""), an.simbolo, sint.accion);
     
                 } else if(opcion == 3) {
+                    resultadoMsj("Error: Cadena Invalida");
                     console.log("Error");
                     an.caracter = "$";
                     break;
     
                 } else if(opcion == 4) {
+                    resultadoMsj("Aceptacion");
                     console.log("Aceptacion");
                     break;
                 }                
             } while(an.simbolo == "$");
-            
-            
-            /*if(an.simbolo != "$") {
-                generarFilasTabla(an.simbolo, an.tipoS, an.tipo);
-            }*/
         }
 
     } else {
         console.log("Entrada vacia");
         entradaVaciaMsj();
     }
+}
+
+const botonAn1 = document.getElementById("boton1");
+botonAn1.addEventListener("click", () => {
+    ejecutarAnalizador(1);
+});
+
+const botonAn2 = document.getElementById("boton2");
+botonAn2.addEventListener("click", () => {
+    ejecutarAnalizador(2);
 });
