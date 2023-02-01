@@ -5,4 +5,13 @@ Un analizador léxico crea tokens de una secuencia de caracteres de entrada y so
 
 El uso más común de los analizadores sintácticos es como parte de la fase de análisis de los compiladores. De modo que tienen que analizar el código fuente del lenguaje, los lenguajes de programación tienden a basarse en gramáticas libres de contexto, debido a que se pueden escribir analizadores rápidos y eficientes para estas.
 
-#Tarea: Mini analizador sintáctico (Excel)
+# Tarea: Mini analizador sintáctico (Excel)
+Subir un archivo en excel simulando las gramáticas del ejercicio 1 y 2 del archivo (Practica Analizador Sintactico LR.pdf)
+
+Entrada para el Ejercicio 1
+hola+mundo
+
+Entrada para el Ejercicio 2
+a+b+c+d+e+f
+
+Link de archivo: 
