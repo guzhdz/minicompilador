@@ -152,6 +152,8 @@ input:focus{
 .column span {
     font-size: 18px;
     text-align: center;
+    inline-size: 95%;
+    overflow-wrap: break-word;
 }
 
 .row-content {
