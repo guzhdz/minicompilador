@@ -18,3 +18,8 @@ Link de archivo: https://github.com/guzhdz/TRADUCTORES-DE-LENGUAJES-II/blob/main
 
 # Tarea: Mini analizador sintáctico (código)
 Generar un algoritmo para analizar los Ejercicios 1 y 2 del archivo (PracticaAnalizadorSintactico.pdf)
+
+Se modifico el codigo del analizador lexico para que funcionara junto con un codigo nuevo y hicira la funcion del analizador sintactico. Se agrego una nueva clase (Sintactico) la cual realiza as tareas importantes del mismo, ademas de que se cambio la interfaz para que concordara con el objetivo de este mini analizador sintactico.
+
+Foto del codigo:
+![image](https://user-images.githubusercontent.com/89165084/216158896-8cb0f7ee-7cd4-4c8a-90ed-876efc65695e.png)
