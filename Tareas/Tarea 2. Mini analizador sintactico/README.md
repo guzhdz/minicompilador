@@ -26,3 +26,6 @@ Foto del codigo:
 ![image](https://user-images.githubusercontent.com/89165084/216158896-8cb0f7ee-7cd4-4c8a-90ed-876efc65695e.png)
 
 Tablas LR en las que se baso el codigo:
+
+![image](https://user-images.githubusercontent.com/89165084/216159161-9e1cdc1b-b374-48d8-aeab-01dfb023f9de.png)
+
