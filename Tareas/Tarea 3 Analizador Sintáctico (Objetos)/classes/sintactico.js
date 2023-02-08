@@ -1,7 +1,8 @@
+import { Pila } from './pila.js';
 class Sintactico {
     
     constructor(tLR) {
-        this.pila = [];
+        this.pila = new Pila();
         this.fila = 0;
         this.columna = 0;
         this.accion = 0;
@@ -43,21 +44,21 @@ class Sintactico {
     }
 
     inicializarPila() {
-        this.pila = [];
-        this.pila.push("$");
-        this.pila.push(0);
+        this.pila.vaciar;
+        this.pila.push("$", 1);
+        this.pila.push(0, 3);
     }
 
     sigEntrada(tipo) {
-        this.fila = this.pila[this.pila.length -1];
+        this.fila = this.pila.front();
         this.columna = tipo;
         this.accion = this.tablaLR1[this.fila][this.columna];
     }
 
     sigAccion(simbolo) {
         if(this.accion > 0){
-            this.pila.push(simbolo);
-            this.pila.push(this.accion);
+            this.pila.push(simbolo, 1);
+            this.pila.push(this.accion, 3);
             return 1;
 
         } else if (this.accion < 0) {
@@ -71,12 +72,12 @@ class Sintactico {
                 this.pila.pop();
             }
 
-            this.fila = this.pila[this.pila.length - 1];
+            this.fila = this.pila.front();
             this.columna = this.idReglas[idRegla];
             this.accion = this.tablaLR1[this.fila][this.columna];
 
-            this.pila.push(this.simReglas[idRegla]);
-            this.pila.push(this.accion);
+            this.pila.push(this.simReglas[idRegla], 2);
+            this.pila.push(this.accion, 3);
             return 2;
             
         } else {

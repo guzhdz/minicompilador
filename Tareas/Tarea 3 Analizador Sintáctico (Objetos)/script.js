@@ -105,14 +105,14 @@ const ejecutarAnalizador = (tablaLr) => {
             do {
                 sint.sigEntrada(an.tipo);
 
-                imprimirRubros(sint.pila.join(""), an.simbolo, sint.accion);
-                generarFilasTabla(sint.pila.join(""), an.simbolo, sint.accion);
+                imprimirRubros(sint.pila.toString(), an.simbolo, sint.accion);
+                generarFilasTabla(sint.pila.toString(), an.simbolo, sint.accion);
     
                 let opcion = sint.sigAccion(an.simbolo);
     
                 if(opcion == 2) {
-                    imprimirRubros(sint.pila.join(""), an.simbolo, sint.accion);
-                    generarFilasTabla(sint.pila.join(""), an.simbolo, sint.accion);
+                    imprimirRubros(sint.pila.toString(), an.simbolo, sint.accion);
+                    generarFilasTabla(sint.pila.toString(), an.simbolo, sint.accion);
     
                 } else if(opcion == 3) {
                     resultadoMsj("Error: Cadena Invalida");
