@@ -38,3 +38,8 @@ Se mejoro el aspecto visual, de manera que ahora si se ejecuta en un servidor lo
 ![Lexico visual1](https://user-images.githubusercontent.com/89165084/216058211-45b5e04a-d30b-4e36-8872-c6eb2074101f.jpg)
 
 ![Lexico visual2](https://user-images.githubusercontent.com/89165084/216058237-a12973df-fb88-4dd8-a91e-8b2237fc4bcb.jpg)
+
+# Analizador Sintactico
+Un analizador sintáctico, también conocido como parser, es una herramienta que se utiliza en el procesamiento de lenguaje natural para analizar y comprender la estructura sintáctica de una frase o un texto. El objetivo de un parser es determinar la relación entre las palabras y las frases en un texto y su función gramatical en el contexto del texto completo.
+
+# Tarea: Gramática del compilador
