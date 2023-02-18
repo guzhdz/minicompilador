@@ -450,7 +450,7 @@ class Analizador {
     }
 
     espacio() {
-        return this.caracter == " ";
+        return this.caracter == " " || this.caracter == "\n";
     }
 
     termina() {  

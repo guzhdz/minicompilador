@@ -14,23 +14,27 @@
         <h1>COMPILADOR</h1>
     </div>
 
-    <div class="an-lexico">
-        <span>Analizador Lexico</span>
-        <input type="text" id="input" placeholder="Introduce el texto a analizar">
-        <button id ="boton-analisis">Analizar</button>
+    <div class="an">
+        <span>Analizador Sintactico</span>
+        <textarea type="text" id="input" placeholder="Introduce el texto a analizar"></textarea>
+        <button id ="boton">Analizar</button>
+    </div>
+
+    <div class="msj-resultado oculto" id="mensaje-resultado">
+        <span>Aceptacion</span>
     </div>
 
     <div class="oculto" id="resultado">
         <div class="table">
             <div class="row">
                 <div class="column">
-                    <span>Simbolo</span>
+                    <span>Pila</span>
                 </div>
                 <div class="column">
-                    <span>Tipo</span>
+                    <span>Entrada</span>
                 </div>
                 <div class="column">
-                    <span>IdTipo</span>
+                    <span>Accion</span>
                 </div>
             </div>
         </div>

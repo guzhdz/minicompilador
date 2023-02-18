@@ -1,4 +1,12 @@
 import {Analizador} from './classes/analizador.js';
+import { Sintactico } from './classes/sintactico.js';
+
+let sint = new Sintactico();
+
+const botonAn1 = document.getElementById("boton");
+botonAn1.addEventListener("click", () => {
+    ejecutarAnalizador(1);
+});
 
 const obtenerFuente = () => {
     const input = document.getElementById("input");
@@ -8,11 +16,11 @@ const obtenerFuente = () => {
 }
 
 const imprimirRubros = (columna1, columna2, columna3) => {
-    for (let i = columna1.length; i < 20; i++) {
+    for (let i = columna1.length; i < 30; i++) {
         columna1 += " ";
     }
 
-    for (let i = columna2.length; i < 15; i++) {
+    for (let i = columna2.length; i < 20; i++) {
         columna2 += " ";
     }
 
@@ -55,7 +63,10 @@ const reiniciaTabla = () => {
     let resultado = document.getElementById("resultado");
     let tabla = resultado.firstElementChild;
     let vacio = document.getElementById("vacio");
+    let mensaje = document.getElementById("mensaje-resultado");
     vacio.classList.add("oculto");
+    mensaje.classList.add("oculto");
+    
 
     resultado.classList.remove("oculto");
 
@@ -74,30 +85,58 @@ const entradaVaciaMsj = () => {
     vacio.classList.remove("oculto");
 }
 
-const botonAnLexico = document.getElementById("boton-analisis");
-botonAnLexico.addEventListener("click", () => {
+const resultadoMsj = (texto) => {
+    let aceptacion = document.getElementById("mensaje-resultado");
+    aceptacion.classList.remove("oculto");
+    aceptacion.firstElementChild.textContent = texto;
+}
+
+const ejecutarAnalizador = () => {
     let fuente = "";
     fuente = obtenerFuente();
-
     let an = new Analizador(fuente);
 
-    console.log("Resultado del analisis Lexico");
+    console.log("Resultado del analisis Sintactico");
 
     if(fuente.length != 0) {
-        console.log("Simbolo             Tipo           Id_tipo   ");
+        console.log("Pila                       Entrada                Accion   ");
         reiniciaTabla();
+
+        sint.inicializarPila();
 
         while(!an.termina()) {
             an.obtenerSimbolo();
 
-            imprimirRubros(an.simbolo, an.tipoS, an.tipo);
+            let opcion = 0;
 
-            if(an.simbolo != "$") {
-                generarFilasTabla(an.simbolo, an.tipoS, an.tipo);
-            }
+            do {
+                sint.sigEntrada(an.tipo);
+
+                imprimirRubros(sint.pila.toString(), an.simbolo, sint.accion);
+                generarFilasTabla(sint.pila.toString(), an.simbolo, sint.accion);
+    
+                opcion = sint.sigAccion(an.simbolo);
+    
+                if(opcion == 2) {
+                    imprimirRubros(sint.pila.toString(), an.simbolo, sint.accion);
+                    generarFilasTabla(sint.pila.toString(), an.simbolo, sint.accion);
+    
+                } else if(opcion == 3) {
+                    resultadoMsj("Error: Entrada Invalida");
+                    console.log("Error");
+                    an.caracter = "$";
+                    break;
+    
+                } else if(opcion == 4) {
+                    resultadoMsj("Aceptacion");
+                    console.log("Aceptacion");
+                    break;
+                }                
+            } while(opcion == 2);
         }
+
     } else {
         console.log("Entrada vacia");
         entradaVaciaMsj();
     }
-});
+}
