@@ -1,12 +1,6 @@
-# Compilador
+# Arbol sintactico
 
-Un traductor es un programa que recibe como entrada código escrito en un cierto lenguaje y produce como salida código en otro lenguaje.
-
-https://sciatel.wikispaces.com/TRADUCTORES+DEL+LENGUAJE+DE+PROGRAMACION
-
-Un compilador es un programa informático que traduce un programa que ha sido escrito en un lenguaje de programación a un lenguaje común, usualmente lenguaje de máquina, aunque también puede ser traducido a un código intermedio (bytecode) o a texto. Este proceso de traducción se conoce como compilación.
-
-https://es.wikipedia.org/wiki/Compilador
+El Árbol de sintaxis abstracta es una estructura de datos usada extensamente en compiladores, debido a su propiedad de representar la estructura del código de un programa. Un AST es usualmente el resultado del analizador sintáctico en la fase de un compilador. A menudo sirve como un intermediario de la representación del programa a través de etapas que requiere el compilador, y tiene un impacto fuerte en la salida final del compilador.
 
 # Analizador Lexico
 Link: https://github.com/guzhdz/TRADUCTORES-DE-LENGUAJES-II/tree/main/Proyecto%20principal%20(Por%20partes)/Analizador%20Lexico
