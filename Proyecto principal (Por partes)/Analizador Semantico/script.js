@@ -1,4 +1,5 @@
 import {Lexico} from './classes/lexico.js';
+import { Semantico } from './classes/semantico.js';
 import { Sintactico } from './classes/sintactico.js';
 import {Nodo, Arbol} from './classes/Tree/arbol.js';
 
@@ -6,7 +7,7 @@ let sint = new Sintactico();
 
 const botonlex1 = document.getElementById("boton");
 botonlex1.addEventListener("click", () => {
-    ejecutarlexalizador(1);
+    ejecutaranalizador(1);
 });
 
 const obtenerFuente = () => {
@@ -61,21 +62,21 @@ const generarFilasTabla = (columna1, columna2, columna3) => {
 }
 
 const reiniciaTabla = () => {
-    let resultado = document.getElementById("resultado");
-    let tabla = resultado.firstElementChild;
+    //let resultado = document.getElementById("resultado");
+    //let tabla = resultado.firstElementChild;
     let vacio = document.getElementById("vacio");
     let mensaje = document.getElementById("mensaje-resultado");
     vacio.classList.add("oculto");
     mensaje.classList.add("oculto");
     
 
-    resultado.classList.remove("oculto");
+    /*resultado.classList.remove("oculto");
 
     [...tabla.children].forEach(element => {
         if(element != tabla.firstElementChild) {
             tabla.removeChild(element);
         } 
-    });
+    });*/
 }
 
 const reiniciarArbol = () => {
@@ -131,7 +132,7 @@ const imprimirNodo = (rama, espacio, fragmento) => {
     for (let i = 0; i < espacio; i++) {
         espaciado += "__";
     }
-    console.log(espaciado + espacio + ". " + rama.simbolo);
+    //console.log(espaciado + espacio + ". " + rama.simbolo);
     let ramaDom = document.createElement("li");
     ramaDom.textContent = espaciado + espacio + ". " + rama.simbolo;
     ramaDom.classList.add("parte-arbol");
@@ -144,14 +145,16 @@ const imprimirNodo = (rama, espacio, fragmento) => {
     });
 }
 
-const ejecutarlexalizador = () => {
+const ejecutaranalizador = () => {
     let fuente = "";
     fuente = obtenerFuente();
     let lex = new Lexico(fuente);
+    let seman;
 
     //console.log("Resultado del analisis Sintactico");
-    //console.log("Resultado del lexalisis Lexico");
-    console.log("Arbol Sintactico");
+    //console.log("Resultado del anlisis Lexico");
+    //console.log("Arbol Sintactico");
+    console.log("Resultado del analisis Semantico")
 
     if(fuente.length != 0) {
         //console.log("Pila                       Entrada                Accion   ");
@@ -171,13 +174,13 @@ const ejecutarlexalizador = () => {
                 sint.sigEntrada(lex.tipo);
 
                 //imprimirRubros(sint.pila.toString(), lex.simbolo, sint.accion);
-                generarFilasTabla(sint.pila.toString(), lex.simbolo, sint.accion);
+                //generarFilasTabla(sint.pila.toString(), lex.simbolo, sint.accion);
     
                 opcion = sint.sigAccion(lex.simbolo);
     
                 if(opcion == 2) {
                     //imprimirRubros(sint.pila.toString(), lex.simbolo, sint.accion);
-                    generarFilasTabla(sint.pila.toString(), lex.simbolo, sint.accion);
+                    //generarFilasTabla(sint.pila.toString(), lex.simbolo, sint.accion);
     
                 } else if(opcion == 3) {
                     resultadoMsj("Error sintactico");
@@ -186,10 +189,16 @@ const ejecutarlexalizador = () => {
                     break;
     
                 } else if(opcion == 4) {
-                    resultadoMsj("Aceptacion");
-                    console.log("Aceptacion");
+                    resultadoMsj("Aceptacion sintactico");
+                    console.log("Aceptacion sintactico");
                     arbol = sint.arbol;
                     imprimirArbol(arbol);
+                    seman = new Semantico(arbol);
+                    seman.analisis();
+                    if(seman.valido)
+                        resultadoMsj("Aceptacion semantico");
+                    else
+                        resultadoMsj("Error semantico\n" + seman.error);
                     break;
                 }                
             } while(opcion == 2);

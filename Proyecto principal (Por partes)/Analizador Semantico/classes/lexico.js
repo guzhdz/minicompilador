@@ -127,6 +127,12 @@ class Lexico {
                         break;
                     }
 
+                    if(this.caracter == '"') {
+                        this.estado = 19;
+                        this.simbolo += this.caracter;
+                        break;
+                    }
+
                     if(this.caracter == "$") {
                         this.estado = 23;
                         this.simbolo += this.caracter;
@@ -243,6 +249,20 @@ class Lexico {
                     } else {
                         this.regresa();
                     }
+                    this.aceptacion(this.estado);
+                    break;
+
+                case 19:
+                    if(this.esLetra() || this.esDigito()) {
+                        this.simbolo += this.caracter;
+                        break;
+                    } else if(this.caracter == '"') {
+                        this.simbolo += this.caracter;
+                        this.estado = 24;
+                        this.aceptacion(this.estado);
+                        break;
+                    }
+                    this.estado = 404;
                     this.aceptacion(this.estado);
                     break;
 
@@ -376,6 +396,11 @@ class Lexico {
                 this.tipo = 23;
                 this.tipoS = "$";
                 break;
+
+            case 24:
+                this.tipo = 3;
+                this.tipoS = "Cadena";
+                break;
         
             default:
                 break;
@@ -414,7 +439,7 @@ class Lexico {
     }
 
     esReservada() {
-        if (this.simbolo == "int" || this.simbolo == "float" || this.simbolo == "void") {
+        if (this.simbolo == "int" || this.simbolo == "float" || this.simbolo == "void" || this.simbolo == "char") {
             return 4;
         } else if(this.simbolo == "if") {
             return 19;
