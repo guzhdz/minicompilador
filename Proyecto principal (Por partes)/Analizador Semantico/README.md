@@ -8,7 +8,7 @@ Un compilador es un programa informático que traduce un programa que ha sido es
 
 https://es.wikipedia.org/wiki/Compilador
 
-# Analizador Lexico
+# Analizador Semantico
 Link: https://github.com/guzhdz/TRADUCTORES-DE-LENGUAJES-II/tree/main/Proyecto%20principal%20(Por%20partes)/Analizador%20Lexico
 
 El Análisis Léxico es la primera fase de un compilador, este consiste en un programa que recibe como entrada el código fuente de otro programa (secuencia de caracteres) y produce una salida compuesta de tokens (componentes léxicos) o símbolos. 
