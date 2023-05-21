@@ -186,7 +186,7 @@ class Semantico {
             }
 
         } else if(rama instanceof R22 || rama instanceof R23) 
-            return this.analizarExpresion(rama.ramas[3], ambito);
+            return this.analizarExpresion(rama.ramas[2], ambito);
 
         else if(rama instanceof R24) {
             if(rama.ramas[1].ramas.length == 0) {
