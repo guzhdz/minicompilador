@@ -18,6 +18,7 @@ class Sintactico {
 
         fetch('/GramaticaCompilador/compilador.lr').then(res => res.text())
         .then(content => {
+            console.log(content);
             let lines = content.split(/\n/);
             let numReglas = parseInt(lines.shift());
             for (let i = 0; i < numReglas; i++) {
@@ -27,7 +28,7 @@ class Sintactico {
                 this.lonReglas.push(regla[1]);
                 this.simReglas.push(regla[2]);
             }
-            
+
             let numFila = parseInt(lines[numReglas].split("\t").shift());
             numReglas++;
             for (let i = numReglas; i < numReglas + numFila; i++) {
