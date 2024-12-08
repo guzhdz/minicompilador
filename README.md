@@ -5,6 +5,8 @@ transcurso de la clase de Traductores de lebguaje de programacion, este es el re
 El funcionamiento consta de ingresar codigo en el Tex Area (Un programa) y pulsar el boton de compilar, a continuacion la analizara e indicara si hay algun error, en caso de que no dara la opcion
 de descargar la conpilacion (Codigo ensamblador).
 
+Technologies: Angular (Typescript, Javascript, SCSS, HTML), GitHub, OOP
+
 Link repositorio: https://github.com/guzhdz/minicompilador
 
 Link despliegue: https://guzhdz.github.io/minicompilador-page/
